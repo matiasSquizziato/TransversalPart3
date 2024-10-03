@@ -4,6 +4,10 @@
  */
 package transversalpart1;
 
+
+import AccesoADatos.Conexion;
+import org.mariadb.jdbc.Connection;
+
 /**
  *
  * @author matiSqui
@@ -14,7 +18,11 @@ public class TransversalPart1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       
+        
+        Connection con =(Connection) Conexion.getConexion();
+        
+        
     }
     
 }
