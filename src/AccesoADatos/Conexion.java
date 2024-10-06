@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    // Atributos constantes (final) para la URL, la base de datos, el usuario y la contraseña
+    // Atributos para la URL, la base de datos, el usuario y la contraseña
     private static final String URL = "jdbc:mariadb://localhost:3306/";
     private static final String DB = "universidadsql";
     private static final String USUARIO = "root";
