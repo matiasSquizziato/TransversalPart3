@@ -6,8 +6,10 @@ package transversalpart1;
 
 
 import AccesoADatos.Conexion;
-import AccesoADatos.alumnoData;
+import AccesoADatos.AlumnoData;
+import AccesoADatos.MateriaData;
 import Entidades.Alumno;
+import Entidades.Materia;
 import java.time.LocalDate;
 import org.mariadb.jdbc.Connection;
 
@@ -36,7 +38,7 @@ public class TransversalPart1 {
 
 
         //aluData nos permite ejecutar las queries
-        alumnoData aluData = new alumnoData();
+        AlumnoData aluData = new AlumnoData();
         
         //Metodo: guardar alumno
 //        aluData.guardarAlumno(mick);
@@ -48,7 +50,7 @@ public class TransversalPart1 {
 //        aluData.eliminarAlumno(4);
         
          
-//        Buscar alumno por dni
+//        Buscar alumno por id
           Alumno alue = aluData.buscarAlumnoId(2);
           System.out.println(alue.toString());
           
@@ -59,8 +61,7 @@ public class TransversalPart1 {
           
           
 //          Listar Alumnos
-//            aluData.listarAlumnos();
-          
+
         System.out.println("Lista ALUMNOS");
 
             for (Alumno alumnos : aluData.listarAlumnos()) {
@@ -69,7 +70,38 @@ public class TransversalPart1 {
                 
         }
             
+         
+ // -------------------- Materia --------------------
+    
+//         Cargar Materias
+    
+//    Materia Ing = new Materia("Ingles",1, true);
+//    Materia Mate = new Materia("Matematica",1, true);
+    
+
+//      mateData nos permite ejecutar las queries
+        MateriaData mateData = new MateriaData();
+        
+//       mateData.guardarMaterias(Ing);
+//       mateData.guardarMaterias(Mate);
+
+//    Para  probar: 
+//    Materia Labo = new Materia(1,"Laboratorio",1, true);
+//     ...............................
+//       mateData.guardarMaterias(Labo);
+       
+       
+     
+            
+            
+            
+            
             
     }
+    
+    
+   
+       
+    
     
 }

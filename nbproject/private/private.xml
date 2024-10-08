@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/transversalpart1/TransversalPart1.java</file>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/Entidades/Inscripcion.java</file>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/Entidades/Materia.java</file>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/Entidades/Alumno.java</file>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/AccesoADatos/Conexion.java</file>
-            <file>file:/G:/Laboratorio1/TransversalPart1/src/AccesoADatos/alumnoData.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
