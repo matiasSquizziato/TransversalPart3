@@ -28,9 +28,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        MenuAlumnado = new javax.swing.JMenu();
         MenuAlumnos = new javax.swing.JMenuItem();
         MenuMaterias = new javax.swing.JMenuItem();
+        MenuAlumnadoH = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,7 +47,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGap(0, 723, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Administracion");
+        MenuAlumnado.setText("Administracion");
 
         MenuAlumnos.setText("Alumnos");
         MenuAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -54,12 +55,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 MenuAlumnosActionPerformed(evt);
             }
         });
-        jMenu1.add(MenuAlumnos);
+        MenuAlumnado.add(MenuAlumnos);
 
         MenuMaterias.setText("Materias");
-        jMenu1.add(MenuMaterias);
+        MenuAlumnado.add(MenuMaterias);
 
-        jMenuBar1.add(jMenu1);
+        MenuAlumnadoH.setText("Alumnado Historico");
+        MenuAlumnadoH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAlumnadoHActionPerformed(evt);
+            }
+        });
+        MenuAlumnado.add(MenuAlumnadoH);
+
+        jMenuBar1.add(MenuAlumnado);
 
         jMenu2.setText("Inscripciones");
         jMenuBar1.add(jMenu2);
@@ -93,6 +102,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MenuAlumnosActionPerformed
 
+    private void MenuAlumnadoHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumnadoHActionPerformed
+
+        InternalAlumnadoH internalAlumnado = new InternalAlumnadoH();
+        escritorio.add(internalAlumnado);
+        internalAlumnado.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuAlumnadoHActionPerformed
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -129,10 +150,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuAlumnado;
+    private javax.swing.JMenuItem MenuAlumnadoH;
     private javax.swing.JMenuItem MenuAlumnos;
     private javax.swing.JMenuItem MenuMaterias;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

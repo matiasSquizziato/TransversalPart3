@@ -113,8 +113,18 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
 
         btEliminar.setText("Eliminar");
         btEliminar.setToolTipText("");
+        btEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEliminarActionPerformed(evt);
+            }
+        });
 
         btSalir.setText("Salir");
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,10 +259,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this,"DEBE INGRESAR UN NUMERO VALIDO");
             
         }
-        
-        
-        
-        
+  
         
     }//GEN-LAST:event_btBuscarActionPerformed
 
@@ -318,6 +325,30 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_btGuardarActionPerformed
+
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+        
+        dispose();
+
+    }//GEN-LAST:event_btSalirActionPerformed
+
+    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+
+        if (alumnoActual!= null) {
+            
+            //La eliminacion consiste en cambiar el estado 1 = activo / 0 = inactivo
+            aluData.eliminarAlumno(alumnoActual.getIdAlumno());
+            alumnoActual = null;
+            limpiarCampos();
+            
+        } else {
+            
+            JOptionPane.showConfirmDialog(this, "No hay alumno seleccionado");
+            
+        }
+        
+
+    }//GEN-LAST:event_btEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

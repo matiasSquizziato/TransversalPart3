@@ -184,7 +184,7 @@ public class AlumnoData {
                  
              } else {
                  
-             JOptionPane.showMessageDialog(null, "no existe ese alumno con ese dni:  " + dni);
+             JOptionPane.showMessageDialog(null, "No existe ese alumno con ese dni:  " + dni + " Ver lista alumnado");
 
                  
              }
@@ -203,7 +203,7 @@ public class AlumnoData {
         
         String sql= "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE estado = 1";
         
-        ArrayList <Alumno> listaAlumnos = new ArrayList<>();
+         ArrayList <Alumno> listaAlumnos = new ArrayList<>();
         
          try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -231,5 +231,40 @@ public class AlumnoData {
          return listaAlumnos;
          
     }
-     
+ 
+           //Listar alumnos inActivos
+         public List<Alumno> listarAlumnosIn(){
+        
+        String sql= "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE estado = 0";
+        
+         ArrayList <Alumno> listaAlumnosIn = new ArrayList<>();
+        
+         try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+             while (rs.next()) {
+                 
+                Alumno alumno = new Alumno();
+                 alumno.setIdAlumno(rs.getInt("idAlumno"));
+                 alumno.setDni(rs.getInt("dni"));
+                 alumno.setApellido(rs.getString("apellido"));
+                 alumno.setNombre(rs.getString("nombre"));
+                 alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                 alumno.setActivo(false);
+                 
+                 listaAlumnosIn.add(alumno);
+                 
+             }
+            
+           ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno: " + ex.getMessage());
+        }
+                
+                
+         return listaAlumnosIn;
+         
+    }
+         
+         
 }
