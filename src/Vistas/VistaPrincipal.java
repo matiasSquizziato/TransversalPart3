@@ -58,6 +58,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         MenuAlumnado.add(MenuAlumnos);
 
         MenuMaterias.setText("Materias");
+        MenuMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMateriasActionPerformed(evt);
+            }
+        });
         MenuAlumnado.add(MenuMaterias);
 
         MenuAlumnadoH.setText("Alumnado Historico");
@@ -110,6 +115,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuAlumnadoHActionPerformed
+
+    private void MenuMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMateriasActionPerformed
+        
+        InternalMaterias internalMaterias = new InternalMaterias();
+        escritorio.add(internalMaterias);
+        internalMaterias.setVisible(true);
+
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuMateriasActionPerformed
 
     
     

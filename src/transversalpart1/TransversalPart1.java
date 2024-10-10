@@ -50,13 +50,13 @@ public class TransversalPart1 {
 //        aluData.eliminarAlumno(4);
         
          
-//        Buscar alumno por id
-          Alumno alue = aluData.buscarAlumnoId(2);
-          System.out.println(alue.toString());
-          
-//        Buscar alumno por dni
-          Alumno alue2 = aluData.buscarAlumnoDni(898763);
-          System.out.println(alue2.toString());
+////        Buscar alumno por id
+//          Alumno alue = aluData.buscarAlumnoId(2);
+//          System.out.println(alue.toString());
+//          
+////        Buscar alumno por dni
+//          Alumno alue2 = aluData.buscarAlumnoDni(898763);
+//          System.out.println(alue2.toString());
           
           
           

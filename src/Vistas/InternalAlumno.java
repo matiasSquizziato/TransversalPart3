@@ -95,7 +95,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        btBuscar.setText("Buscar");
+        btBuscar.setText("🔎");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarActionPerformed(evt);
@@ -162,9 +162,9 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
                                     .addComponent(txDniAlumno)
                                     .addComponent(txApellidoAlum)
                                     .addComponent(txNombreAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(63, 63, 63)
-                                .addComponent(btBuscar)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(52, 52, 52)
+                                .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(112, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -192,7 +192,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txDniAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btBuscar))
+                            .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -217,7 +217,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
                     .addComponent(btSalir)
                     .addComponent(btEliminar)
                     .addComponent(btGuardar))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
