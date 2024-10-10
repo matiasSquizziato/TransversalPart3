@@ -2,8 +2,9 @@
 package AccesoADatos;
 
 import Entidades.Materia;
-import org.mariadb.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class MateriaData {
         String sql = "INSERT INTO materia( nombre, año, estado) VALUES (?,?,?)";
         
         try {
+            
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             
             ps.setString(1, materia.getNombre());
