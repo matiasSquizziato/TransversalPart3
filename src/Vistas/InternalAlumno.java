@@ -102,6 +102,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
             }
         });
 
+        labelMensaje.setForeground(new java.awt.Color(58, 186, 90));
         labelMensaje.setText("\"          \"");
 
         btNuevo.setText("Nuevo");
@@ -309,7 +310,9 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
                  alumnoActual.setDni(dniSel);
                  alumnoActual.setApellido(apellidoSel);
                  alumnoActual.setNombre(nombreSel);
-                 alumnoActual.setFechaNac(fechaNac);                 
+                 alumnoActual.setFechaNac(fechaNac);   
+                 //con esto puedo modificar el estado sin tener que eliminar 
+                 alumnoActual.setActivo(estadoSel);
                  
                  aluData.modificarAlumno(alumnoActual);
                  

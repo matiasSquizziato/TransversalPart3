@@ -5,9 +5,11 @@
         <group>
             <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/AccesoADatos/MateriaData.java</file>
             <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/Vistas/VistaPrincipal.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/Entidades/Alumno.java</file>
             <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/Vistas/InternalAlumno.java</file>
-            <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/Vistas/InternalMaterias.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/AccesoADatos/AlumnoData.java</file>
             <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/transversalpart1/TransversalPart1.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part1/TransversalPart1/src/Vistas/InternalAlumnadoH.java</file>
         </group>
     </open-files>
 </project-private>

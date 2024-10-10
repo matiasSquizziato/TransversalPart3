@@ -40,10 +40,11 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btAlumnadoTrue = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btAlumnadoFalse = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAlumnado = new javax.swing.JTable();
         btSalir = new javax.swing.JButton();
+        labelMensaje = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Alumnado Historico");
@@ -58,10 +59,10 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Alumnado Inactivo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btAlumnadoFalse.setText("Alumnado Inactivo");
+        btAlumnadoFalse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btAlumnadoFalseActionPerformed(evt);
             }
         });
 
@@ -85,6 +86,9 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
             }
         });
 
+        labelMensaje.setText("\"   \"");
+        labelMensaje.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,10 +104,14 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
                             .addComponent(btAlumnadoTrue)
                             .addComponent(jLabel2))
                         .addGap(88, 88, 88)
-                        .addComponent(jButton2))
+                        .addComponent(btAlumnadoFalse))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(labelMensaje)))))
                 .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
@@ -126,23 +134,31 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAlumnadoTrue)
-                    .addComponent(jButton2))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAlumnadoFalse))
+                .addGap(64, 64, 64)
+                .addComponent(labelMensaje)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- modelo.setRowCount(0);
+    private void btAlumnadoFalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlumnadoFalseActionPerformed
+ 
+        labelMensaje.setText("Resultado de la busqueda de alumnado: [Inactivo]");
+        
+        modelo.setRowCount(0);
         mostrarDatosFalse();
      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btAlumnadoFalseActionPerformed
 
     private void btAlumnadoTrueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlumnadoTrueActionPerformed
-     modelo.setRowCount(0);
+    
+        labelMensaje.setText("Resultado de la busqueda de alumnado: [Activo]");
+
+    modelo.setRowCount(0);
     mostrarDatosTrue();        
            
     }//GEN-LAST:event_btAlumnadoTrueActionPerformed
@@ -155,14 +171,15 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAlumnadoFalse;
     private javax.swing.JButton btAlumnadoTrue;
     private javax.swing.JButton btSalir;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableAlumnado;
+    private javax.swing.JLabel labelMensaje;
     // End of variables declaration//GEN-END:variables
 
     public void armarCabecera(){
@@ -171,7 +188,7 @@ public class InternalAlumnadoH extends javax.swing.JInternalFrame {
         modelo.addColumn("DNI");
         modelo.addColumn("Apellido");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Estado (1/0)");
+        modelo.addColumn("Estado");
         
         jTableAlumnado.setModel(modelo);
         
