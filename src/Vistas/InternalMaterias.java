@@ -33,6 +33,7 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        alumnoData1 = new AccesoADatos.AlumnoData();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
@@ -64,8 +65,18 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
         cbEstado.setText("Activo");
 
         btNuevo.setText("Nuevo");
+        btNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNuevoActionPerformed(evt);
+            }
+        });
 
         btGuardar.setText("Guardar");
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardarActionPerformed(evt);
+            }
+        });
 
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +87,7 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Acá podras, crear y modificar los registros de las materias");
 
-        btBuscar.setText("🔎");
+        btBuscar.setText("Buscar");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarActionPerformed(evt);
@@ -111,8 +122,8 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
                                     .addComponent(txAnioMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbEstado))
                                 .addGap(27, 27, 27)
-                                .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE))
+                                .addComponent(btBuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -124,7 +135,7 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(17, 17, 17)
                                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 74, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,11 +147,11 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txIdMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btBuscar))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -153,14 +164,14 @@ public class InternalMaterias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cbEstado))
-                .addGap(34, 34, 34)
+                .addGap(56, 56, 56)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNuevo)
                     .addComponent(btGuardar)
                     .addComponent(btSalir))
-                .addGap(79, 79, 79))
+                .addGap(101, 101, 101))
         );
 
         pack();
@@ -199,8 +210,58 @@ dispose();        // TODO add your handling code here:
         // TODO add your handling code here:
     }//GEN-LAST:event_btBuscarActionPerformed
 
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+
+        try{
+        
+        Integer idSelect = Integer.parseInt(txIdMateria.getText());
+        String nombreSel = txNombreMateria.getText();
+        Integer anioSel = Integer.parseInt(txAnioMateria.getText());
+        Boolean estadoSel = cbEstado.isSelected();
+        
+            if (nombreSel.isEmpty()) {
+                
+                JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+                return;
+            }
+        
+            //si la materia no esta registrada se guarda
+        if (materiaActual == null) {
+             materiaActual = new Materia(idSelect,nombreSel, anioSel, estadoSel);
+            mateData.guardarMaterias(materiaActual);
+            
+            //si la materia ya esta cargada se puede modificar y guardar los cambios
+            
+        } else {
+            
+            materiaActual.setIdMateria(idSelect);
+            materiaActual.setNombre(nombreSel);
+            materiaActual.setAnioMateria(anioSel);
+            materiaActual.setActivo(estadoSel);
+            
+            mateData.modificarMaterias(materiaActual);
+        }
+        
+        
+        } catch (NumberFormatException nfe){
+            
+            JOptionPane.showMessageDialog(this, "DEBE INGRESAR UN ID VALIDO");
+            
+        }
+        
+
+    }//GEN-LAST:event_btGuardarActionPerformed
+
+    private void btNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevoActionPerformed
+
+        limpiarCampos();
+        materiaActual = null;
+
+    }//GEN-LAST:event_btNuevoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private AccesoADatos.AlumnoData alumnoData1;
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btNuevo;
@@ -218,4 +279,14 @@ dispose();        // TODO add your handling code here:
     private javax.swing.JTextField txIdMateria;
     private javax.swing.JTextField txNombreMateria;
     // End of variables declaration//GEN-END:variables
+    
+    public void limpiarCampos(){
+        
+        
+        txIdMateria.setText("");
+        txNombreMateria.setText("");
+        txAnioMateria.setText("");
+        cbEstado.setSelected(false);
+    }
+
 }

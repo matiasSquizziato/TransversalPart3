@@ -32,6 +32,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         MenuAlumnos = new javax.swing.JMenuItem();
         MenuMaterias = new javax.swing.JMenuItem();
         MenuAlumnadoH = new javax.swing.JMenuItem();
+        MenuListaMate = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,6 +73,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         MenuAlumnado.add(MenuAlumnadoH);
+
+        MenuListaMate.setText("Listado Materias");
+        MenuListaMate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuListaMateActionPerformed(evt);
+            }
+        });
+        MenuAlumnado.add(MenuListaMate);
 
         jMenuBar1.add(MenuAlumnado);
 
@@ -126,6 +135,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuMateriasActionPerformed
 
+    private void MenuListaMateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListaMateActionPerformed
+
+        InternalListaMaterias internalListaMate = new InternalListaMaterias();
+        escritorio.add(internalListaMate);
+        internalListaMate.setVisible(true);
+               
+    }//GEN-LAST:event_MenuListaMateActionPerformed
+
     
     
     
@@ -168,6 +185,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuAlumnado;
     private javax.swing.JMenuItem MenuAlumnadoH;
     private javax.swing.JMenuItem MenuAlumnos;
+    private javax.swing.JMenuItem MenuListaMate;
     private javax.swing.JMenuItem MenuMaterias;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu2;
