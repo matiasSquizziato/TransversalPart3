@@ -205,6 +205,7 @@ dispose();        // TODO add your handling code here:
             
         }
        
+    
 
 
         // TODO add your handling code here:
@@ -212,6 +213,8 @@ dispose();        // TODO add your handling code here:
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
 
+        
+   
         try{
         
         Integer idSelect = Integer.parseInt(txIdMateria.getText());
@@ -231,6 +234,7 @@ dispose();        // TODO add your handling code here:
             mateData.guardarMaterias(materiaActual);
             
             //si la materia ya esta cargada se puede modificar y guardar los cambios
+            //para cambiar el id
             
         } else {
             

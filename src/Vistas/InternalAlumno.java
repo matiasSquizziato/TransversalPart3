@@ -173,7 +173,7 @@ public class InternalAlumno extends javax.swing.JInternalFrame {
                                         .addComponent(cbEstado)
                                         .addGap(29, 29, 29)
                                         .addComponent(labelMensaje))
-                                    .addComponent(jcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(114, 114, 114)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
