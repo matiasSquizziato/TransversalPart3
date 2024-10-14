@@ -34,6 +34,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         MenuAlumnadoH = new javax.swing.JMenuItem();
         MenuListaMate = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        MenuInscripToMate = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuAlumnado);
 
         jMenu2.setText("Inscripciones");
+
+        MenuInscripToMate.setText("to Materias");
+        MenuInscripToMate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuInscripToMateActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuInscripToMate);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -143,6 +153,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
                
     }//GEN-LAST:event_MenuListaMateActionPerformed
 
+    private void MenuInscripToMateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuInscripToMateActionPerformed
+
+        InternalInscripciones internalInscrip = new InternalInscripciones();
+        escritorio.add(internalInscrip);
+        internalInscrip.setVisible(true);
+
+
+    }//GEN-LAST:event_MenuInscripToMateActionPerformed
+
     
     
     
@@ -185,6 +204,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuAlumnado;
     private javax.swing.JMenuItem MenuAlumnadoH;
     private javax.swing.JMenuItem MenuAlumnos;
+    private javax.swing.JMenuItem MenuInscripToMate;
     private javax.swing.JMenuItem MenuListaMate;
     private javax.swing.JMenuItem MenuMaterias;
     private javax.swing.JDesktopPane escritorio;
