@@ -273,7 +273,7 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
 
     private void btAnularInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnularInsActionPerformed
 
-        limpiarFilas();
+        
         
     int selectRow = jTable1.getSelectedRow();
 

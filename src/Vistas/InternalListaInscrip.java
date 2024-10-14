@@ -201,9 +201,9 @@ dispose();        // TODO add your handling code here:
     
     public void armarCabecera(){
         
-       
+        modelo.addColumn("idMateria");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Nota");
+        modelo.addColumn("Año");
         
         jTable1.setModel(modelo);
         
