@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/AccesoADatos/MateriaData.java</file>
-            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/InternalAlumno.java</file>
             <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/TransversalPart2.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Entidades/Inscripcion.java</file>
             <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/AccesoADatos/AlumnoData.java</file>
-            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/InternalMaterias.java</file>
-            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/InternalListaMaterias.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/AccesoADatos/InscripcionData.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/InternalInscripciones.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Vistas/VistaPrincipal.java</file>
+            <file>file:/G:/Laboratorio1/Transversal/Part2/TransversalPart2/src/Entidades/Alumno.java</file>
         </group>
     </open-files>
 </project-private>

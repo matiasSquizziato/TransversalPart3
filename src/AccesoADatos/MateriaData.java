@@ -91,10 +91,10 @@ public class MateriaData {
     
     //Buscar Materias
     public Materia buscarMateriaId(int id){
+         Materia materia = null;
+        String sql = "SELECT * FROM materia WHERE idMateria = ?";
         
-        String sql = "SELECT nombre, año, estado FROM materia WHERE idMateria = ? ";
-        
-        Materia materia = null;
+       
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -121,6 +121,33 @@ public class MateriaData {
         return materia;
         
     }
+    
+    //Buscar materia por nombre
+   public int buscarMateNombre(String nombre) {
+    int idMateria = -1;  
+
+    String sql = "SELECT idMateria FROM materia WHERE nombre = ?";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, nombre);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            idMateria = rs.getInt("idMateria");
+        } else {
+            JOptionPane.showMessageDialog(null, "NO SE ENCONTRO LA MATERIA CON EL NOMBRE: " + nombre);
+        }
+
+    } catch (SQLException ex) {
+        Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    return idMateria;
+}
+
+    
     
     //Listar materias
     

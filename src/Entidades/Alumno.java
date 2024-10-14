@@ -32,6 +32,16 @@ public class Alumno {
         this.fechaNac = fechaNac;
         this.activo = activo;
     }
+    
+    //Constructor de tres elementos
+    public Alumno(int idAlumno, int dni, String apellido){
+        
+        this.idAlumno = idAlumno;
+        this.dni = dni;
+        this.apellido = apellido;
+        
+    }
+    
 
     public int getIdAlumno() {
         return idAlumno;
@@ -81,12 +91,11 @@ public class Alumno {
         this.activo = activo;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "id:" + idAlumno + dni  + apellido + nombre +  fechaNac +  activo + '}';
+        return dni +", " + apellido +", " + nombre + ", " + "estado: " + activo;
     }
  
-    
     
     
     

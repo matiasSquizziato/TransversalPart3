@@ -6,6 +6,7 @@ public class Inscripcion {
     private Alumno alumno;
     private Materia materia;
     private double nota;
+    private int idMateria;
 
     // Constructor con todos los atributos
     public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, double nota) {
@@ -22,6 +23,8 @@ public class Inscripcion {
         this.nota = nota;
     }
 
+    
+    
     // Constructor vacío
     public Inscripcion() {
     }
@@ -64,6 +67,8 @@ public class Inscripcion {
         this.nota = nota;
     }
 
+    
+    
     // Método toString
     @Override
     public String toString() {
@@ -72,6 +77,15 @@ public class Inscripcion {
                 ", alumno=" + alumno +
                 ", materia=" + materia +
                 ", nota=" + nota +
-                '}';
+                "idMateria" + idMateria;
+               
+    }
+
+    public Object getIdMateria() {
+        return idMateria;
+    }
+
+    public void setIdMateria(int idMateria) {
+        this.idMateria = idMateria;
     }
 }

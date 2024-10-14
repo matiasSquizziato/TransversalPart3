@@ -33,8 +33,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         MenuMaterias = new javax.swing.JMenuItem();
         MenuAlumnadoH = new javax.swing.JMenuItem();
         MenuListaMate = new javax.swing.JMenuItem();
+        MenuListaInscrip = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         MenuInscripToMate = new javax.swing.JMenuItem();
+        MenuToNotas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +52,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
 
         MenuAlumnado.setText("Administracion");
+        MenuAlumnado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAlumnadoActionPerformed(evt);
+            }
+        });
 
         MenuAlumnos.setText("Alumnos");
         MenuAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +90,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         MenuAlumnado.add(MenuListaMate);
 
+        MenuListaInscrip.setText("Listado Inscripciones");
+        MenuListaInscrip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuListaInscripActionPerformed(evt);
+            }
+        });
+        MenuAlumnado.add(MenuListaInscrip);
+
         jMenuBar1.add(MenuAlumnado);
 
-        jMenu2.setText("Inscripciones");
+        jMenu2.setText("Inscripcion");
 
         MenuInscripToMate.setText("to Materias");
         MenuInscripToMate.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +109,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(MenuInscripToMate);
+
+        MenuToNotas.setText("to Notas");
+        MenuToNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuToNotasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenuToNotas);
 
         jMenuBar1.add(jMenu2);
 
@@ -162,6 +185,33 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MenuInscripToMateActionPerformed
 
+    private void MenuToNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuToNotasActionPerformed
+
+        InternalInscripcionNota inscripNota = new InternalInscripcionNota();
+        escritorio.add(inscripNota);
+        inscripNota.setVisible(true);
+        
+        
+
+    }//GEN-LAST:event_MenuToNotasActionPerformed
+
+    private void MenuAlumnadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumnadoActionPerformed
+
+        
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuAlumnadoActionPerformed
+
+    private void MenuListaInscripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListaInscripActionPerformed
+        
+        InternalListaInscrip listaInscripta = new InternalListaInscrip();
+        escritorio.add(listaInscripta);
+        listaInscripta.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_MenuListaInscripActionPerformed
+
     
     
     
@@ -205,8 +255,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuAlumnadoH;
     private javax.swing.JMenuItem MenuAlumnos;
     private javax.swing.JMenuItem MenuInscripToMate;
+    private javax.swing.JMenuItem MenuListaInscrip;
     private javax.swing.JMenuItem MenuListaMate;
     private javax.swing.JMenuItem MenuMaterias;
+    private javax.swing.JMenuItem MenuToNotas;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

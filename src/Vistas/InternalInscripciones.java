@@ -8,8 +8,11 @@ import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import Entidades.Alumno;
+import Entidades.Inscripcion;
 import Entidades.Materia;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -39,11 +42,18 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
      */
     public InternalInscripciones() {
         initComponents();
+        
         aluData = new AlumnoData();
         listaAlumnos = (ArrayList<Alumno>) aluData.listarAlumnos();
-      
+        
+        mateData = new MateriaData();
+        listaMaterias = (ArrayList<Materia>) mateData.listarMateria();
+        
+        inscripData = new InscripcionData();
       
         cargarJcomboBox();
+        armarCabecera();
+        
     }
 
     /**
@@ -80,8 +90,18 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de Materias:");
 
         rbMateInscripta.setText("Materias Inscriptas");
+        rbMateInscripta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMateInscriptaActionPerformed(evt);
+            }
+        });
 
         rbMateNoInscripta.setText("Materias no Inscriptas");
+        rbMateNoInscripta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbMateNoInscriptaActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,10 +117,25 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btIns.setText("Inscribir");
+        btIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btInsActionPerformed(evt);
+            }
+        });
 
         btAnularIns.setText("Anular Inscripcion");
+        btAnularIns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAnularInsActionPerformed(evt);
+            }
+        });
 
         btSalir.setText("Salir");
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,6 +211,101 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rbMateInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateInscriptaActionPerformed
+
+        //Limpio la tabla
+        limpiarFilas();
+        //Desactivo el otro radioButtom
+        rbMateNoInscripta.setSelected(false);
+        
+        //Desactivo el boton inscribir 
+        btIns.setEnabled(false);
+        //Activo el boton anular inscripcion
+        btAnularIns.setEnabled(true);
+        
+        //Cargo la tabla con las materias inscriptas
+        cargarMateriasIns();
+
+    }//GEN-LAST:event_rbMateInscriptaActionPerformed
+
+    private void rbMateNoInscriptaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMateNoInscriptaActionPerformed
+
+        //Limpio la tabla
+        limpiarFilas();
+        //Desactivo el otro radioButtom
+        rbMateInscripta.setSelected(false);
+        
+        //Activo el boton inscribir
+        btIns.setEnabled(true);
+        //Desactivo el boton anular inscripcion
+        btAnularIns.setEnabled(false);
+        
+        //Cargo la tabla con las materias que no estan inscriptas
+        cargarMateriasNull();
+
+    }//GEN-LAST:event_rbMateNoInscriptaActionPerformed
+
+    private void btInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInsActionPerformed
+
+        int selectRow = jTable1.getSelectedRow();
+        
+        if (selectRow!= -1) {
+            
+            Alumno alumSelect = (Alumno) jcAlumnos.getSelectedItem();
+            
+            //                              fila seleccionada / columna
+            int idMateria = (int) modelo.getValueAt(selectRow, 0);
+            String nombreMate = (String) modelo.getValueAt(selectRow, 1);
+            int anioMate = (int) modelo.getValueAt(selectRow, 2);
+            
+            Materia mateSelect = new Materia(idMateria, nombreMate, anioMate, true);
+            
+            Inscripcion incripSelect = new Inscripcion(alumSelect, mateSelect, 10);
+            inscripData.guardarInscripciones(incripSelect);
+            
+            
+            
+        }
+
+        
+
+    }//GEN-LAST:event_btInsActionPerformed
+
+    private void btAnularInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAnularInsActionPerformed
+
+        limpiarFilas();
+        
+    int selectRow = jTable1.getSelectedRow();
+
+           if (selectRow!= -1) {
+
+               Alumno alumSelect = (Alumno) jcAlumnos.getSelectedItem();
+
+               //                              fila seleccionada / columna
+               int idMateria = (int) modelo.getValueAt(selectRow, 0);
+               String nombreMate = (String) modelo.getValueAt(selectRow, 1);
+               int anioMate = (int) modelo.getValueAt(selectRow, 2);
+
+               Materia mateSelect = new Materia(idMateria, nombreMate, anioMate, true);
+
+               Inscripcion incripSelect = new Inscripcion(alumSelect, mateSelect, 0);
+               inscripData.anularInscripciones(alumSelect.getIdAlumno(), idMateria);
+
+
+
+           }  else {
+               JOptionPane.showMessageDialog(null, "Debe seleccionar una fila de la tabla");
+           }
+
+
+           cargarMateriasNull();
+
+    }//GEN-LAST:event_btAnularInsActionPerformed
+
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAnularIns;
@@ -198,11 +328,77 @@ public class InternalInscripciones extends javax.swing.JInternalFrame {
     
     //Cargar el jComboBox
     public void cargarJcomboBox(){
-        
+  
         for (Alumno alumno : listaAlumnos) {
        
             jcAlumnos.addItem(alumno);
             
         }
     }
+    
+    //Armar cabecera
+    public void armarCabecera(){
+        
+    modelo.addColumn("id");
+    modelo.addColumn("Nombre");
+    modelo.addColumn("Año");
+        
+    jTable1.setModel(modelo);
+       
+    }
+ 
+    //Limpiar Filas
+    public void limpiarFilas(){
+        
+        int indice = modelo.getRowCount() -1;
+        
+        for (int i = indice; i>= 0; i--) {
+            modelo.removeRow(i);
+            
+        }
+        
+    }
+    
+    //Mostrar materias no inscriptas
+    public void cargarMateriasNull(){
+         limpiarFilas();
+        Alumno alumnSelect = (Alumno) jcAlumnos.getSelectedItem();
+        listaMaterias = (ArrayList<Materia>) inscripData.consultarMateriasInscriptasNull(alumnSelect.getIdAlumno());
+        
+        for (Materia materia : listaMaterias) {
+            
+           Object[] fila = new Object[3];
+           
+           fila[0] = materia.getIdMateria();
+           fila[1] = materia.getNombre();
+           fila[2] = materia.getAnioMateria();
+           
+           modelo.addRow(fila);
+           
+            
+        }
+    }
+    
+    //Mostrar materias inscriptas
+    public void cargarMateriasIns(){
+        limpiarFilas();
+        Alumno alumnSelect = (Alumno) jcAlumnos.getSelectedItem();
+        List<Materia> listaMate = inscripData.consultarMateriasInscriptas(alumnSelect.getIdAlumno());
+        
+        for (Materia materia : listaMate) {
+            
+            Object[] fila = new Object[3];
+            
+            fila[0] = materia.getIdMateria();
+            fila[1] = materia.getNombre();
+            fila[2] = materia.getAnioMateria();
+            
+            modelo.addRow(fila);
+            
+            
+        }
+        
+        
+    }
+    
 }
